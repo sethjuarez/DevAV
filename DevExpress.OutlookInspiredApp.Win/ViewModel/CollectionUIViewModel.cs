@@ -1,0 +1,101 @@
+﻿namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
+    using System;
+    using DevExpress.Mvvm.DataAnnotations;
+    using DevExpress.Mvvm.POCO;
+    using DevExpress.DevAV.ViewModels;
+
+    public class CollectionUIViewModel {
+        #region ViewKind
+        public virtual CollectionViewKind ViewKind { get; set; }
+        [Command(UseCommandManager = false)]
+        public void ShowCard() {
+            ViewKind = CollectionViewKind.CardView;
+        }
+        public bool CanShowCard() {
+            return ViewKind != CollectionViewKind.CardView;
+        }
+        [Command(UseCommandManager = false)]
+        public void ShowList() {
+            ViewKind = CollectionViewKind.ListView;
+        }
+        public bool CanShowList() {
+            return ViewKind != CollectionViewKind.ListView;
+        }
+        [Command(UseCommandManager = false)]
+        public void ShowCarousel() {
+            ViewKind = CollectionViewKind.Carousel;
+        }
+        public bool CanShowCarousel() {
+            return ViewKind != CollectionViewKind.Carousel;
+        }
+        protected virtual void OnViewKindChanged() {
+            this.RaiseCanExecuteChanged(x => x.ShowList());
+            this.RaiseCanExecuteChanged(x => x.ShowCard());
+            this.RaiseCanExecuteChanged(x => x.ShowCarousel());
+            this.RaiseCanExecuteChanged(x => x.ResetView());
+            RaiseViewKindChanged();
+        }
+        #endregion
+        #region ViewLayout
+        public virtual CollectionViewMasterDetailLayout ViewLayout { get; set; }
+        public bool IsDetailHidden {
+            get { return ViewLayout == CollectionViewMasterDetailLayout.DetailHidden; }
+        }
+        public bool IsHorizontalLayout {
+            get { return ViewLayout == CollectionViewMasterDetailLayout.Horizontal; }
+        }
+        [Command(UseCommandManager = false)]
+        public void ShowHorizontalLayout() {
+            ViewLayout = CollectionViewMasterDetailLayout.Horizontal;
+        }
+        public bool CanShowHorizontalLayout() {
+            return ViewLayout != CollectionViewMasterDetailLayout.Horizontal;
+        }
+        [Command(UseCommandManager = false)]
+        public void ShowVerticalLayout() {
+            ViewLayout = CollectionViewMasterDetailLayout.Vertical;
+        }
+        public bool CanShowVerticalLayout() {
+            return ViewLayout != CollectionViewMasterDetailLayout.Vertical;
+        }
+        [Command(UseCommandManager = false)]
+        public void HideDetail() {
+            ViewLayout = CollectionViewMasterDetailLayout.DetailHidden;
+        }
+        public bool CanHideDetail() {
+            return ViewLayout != CollectionViewMasterDetailLayout.DetailHidden;
+        }
+        protected virtual void OnViewLayoutChanged() {
+            this.RaiseCanExecuteChanged(x => x.ShowHorizontalLayout());
+            this.RaiseCanExecuteChanged(x => x.ShowVerticalLayout());
+            this.RaiseCanExecuteChanged(x => x.HideDetail());
+            this.RaiseCanExecuteChanged(x => x.ResetView());
+            RaiseViewLayoutChanged();
+        }
+        #endregion
+        #region Reset
+        public CollectionViewKind DefaultViewKind { get; set; }
+        public CollectionViewMasterDetailLayout DefaultViewLayout { get; set; }
+        [Command(UseCommandManager = false)]
+        public void ResetView() {
+            ViewKind = DefaultViewKind;
+            ViewLayout = DefaultViewLayout;
+        }
+        public bool CanResetView() {
+            return ViewKind != DefaultViewKind || ViewLayout != DefaultViewLayout;
+        }
+        #endregion
+        public event EventHandler ViewKindChanged;
+        public event EventHandler ViewLayoutChanged;
+        void RaiseViewKindChanged() {
+            EventHandler handler = ViewKindChanged;
+            if(handler != null)
+                handler(this, EventArgs.Empty);
+        }
+        void RaiseViewLayoutChanged() {
+            EventHandler handler = ViewLayoutChanged;
+            if(handler != null)
+                handler(this, EventArgs.Empty);
+        }
+    }
+}
