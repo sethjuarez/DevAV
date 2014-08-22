@@ -2,7 +2,9 @@
 *.user
 *.suo
 *.orig
-*.dat
+*.bak
+*.ide
+*.licx
 [Tt]humbs.db
 obj/
 [Bb]in
@@ -11,3 +13,6 @@ obj/
 numl.repl/*
 packages/*
 TestResults/*
+packages/*
+!packages/repositories.config
+.nuget/

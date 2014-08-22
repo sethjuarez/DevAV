@@ -7,7 +7,7 @@
 
     class ColumnViewHelper<TEntity, TID, TUnitOfWork>
         where TEntity : class
-        where TUnitOfWork : IUnitOfWork {
+        where TUnitOfWork : class, IUnitOfWork {
         CollectionViewModel<TEntity, TID, TUnitOfWork> viewModel;
         ColumnView view;
         public ColumnViewHelper(ColumnView view, CollectionViewModel<TEntity, TID, TUnitOfWork> viewModel) {

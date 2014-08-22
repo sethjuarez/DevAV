@@ -1,11 +1,12 @@
 ﻿namespace DevExpress.OutlookInspiredApp.Win {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using System.Windows.Forms;
     using DevExpress.Mvvm;
     using DevExpress.OutlookInspiredApp.Win.Modules;
 
-    public abstract class DocumentManagerServiceBase : IDocumentManagerService {
+    public abstract class DocumentManagerServiceBase : IDocumentManagerService, IDocumentOwner {
         IList<IDocument> documentsCore;
         public DocumentManagerServiceBase() {
             this.documentsCore = new List<IDocument>();
@@ -34,6 +35,9 @@
                     viewModel = ((ISupportViewModel)view).ViewModel;
                 ViewModelHelper.EnsureModuleViewModel(view, parentViewModel, parameter);
             }
+            IDocumentContent documentContent = viewModel as IDocumentContent;
+            if(documentContent != null)
+                documentContent.DocumentOwner = this;
             return viewModel;
         }
         protected internal void RemoveDocument(IDocument document) {
@@ -58,6 +62,11 @@
             remove { }
         }
         #endregion IDocumentManagerService
+        void IDocumentOwner.Close(IDocumentContent documentContent, bool force) {
+            var document = documentsCore.FirstOrDefault((d) => object.Equals(d.Content, documentContent));
+            if(document != null)
+                document.Close(force);
+        }
         protected abstract IDocument CreateDocumentCore(string documentType, object viewModel, object parentViewModel, object parameter);
     }
     public abstract class DialogDocumentManagerService : DocumentManagerServiceBase {

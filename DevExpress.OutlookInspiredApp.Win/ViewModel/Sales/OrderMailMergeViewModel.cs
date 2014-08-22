@@ -15,14 +15,14 @@
             unitOfWork = DbUnitOfWorkFactory.Instance.CreateUnitOfWork();
         }
         public virtual OrderMailMergePeriod? Period { get; set; }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetThisMonthPeriod() {
             Period = OrderMailMergePeriod.ThisMonth;
         }
         public bool CanSetThisMonthPeriod() {
             return Period != OrderMailMergePeriod.ThisMonth;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetLastMonthPeriod() {
             Period = OrderMailMergePeriod.LastMonth;
         }

@@ -1,5 +1,7 @@
 ﻿namespace DevExpress.OutlookInspiredApp.Win.Presenters {
     using System.Windows.Forms;
+    using DevExpress.DevAV.Common.DataModel;
+    using DevExpress.DevAV.Common.ViewModel;
     using DevExpress.DevAV.ViewModels;
     using DevExpress.OutlookInspiredApp.Win.Modules;
     using DevExpress.OutlookInspiredApp.Win.ViewModel;
@@ -8,7 +10,7 @@
     public abstract class FilterTreeListPresenter<TEntity, TID, TUnitOfWork> :
         BasePresenter<FilterTreeViewModel<TEntity, TID, TUnitOfWork>>
         where TEntity : class
-        where TUnitOfWork : DevExpress.DevAV.Common.DataModel.IUnitOfWork {
+        where TUnitOfWork : class, IUnitOfWork {
         public FilterTreeListPresenter(TreeList treeList, FilterTreeViewModel<TEntity, TID, TUnitOfWork> viewModel)
             : base(viewModel) {
             this.treeListCore = treeList;
@@ -37,7 +39,7 @@
         protected TreeList TreeList {
             get { return treeListCore; }
         }
-        public DevExpress.DevAV.Common.ViewModel.CollectionViewModel<TEntity, TID, TUnitOfWork> CollectionViewModel {
+        public CollectionViewModel<TEntity, TID, TUnitOfWork> CollectionViewModel {
             get { return ViewModel.CollectionViewModel; }
         }
         protected virtual void SubscribeCollectionViewModelEvents() {

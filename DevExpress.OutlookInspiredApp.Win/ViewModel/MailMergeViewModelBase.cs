@@ -1,8 +1,9 @@
 ﻿namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
     using System;
+    using System.ComponentModel;
     using DevExpress.Mvvm;
 
-    public abstract class MailMergeViewModelBase<TMailTemplate> : ISupportParameter, IDocumentViewModel
+    public abstract class MailMergeViewModelBase<TMailTemplate> : ISupportParameter, IDocumentContent
         where TMailTemplate : struct {
         public virtual TMailTemplate? MailTemplate { get; set; }
         protected virtual void OnMailTemplateChanged() {
@@ -68,13 +69,15 @@
             if(handler != null)
                 handler(this, EventArgs.Empty);
         }
-        #region IDocumentViewModel
-        object IDocumentViewModel.Title {
+        #region IDocumentContent
+        object IDocumentContent.Title {
             get { return "Mail Merge"; }
         }
-        bool IDocumentViewModel.Close() {
-            return Close();
+        void IDocumentContent.OnClose(CancelEventArgs e) {
+            e.Cancel = !Close();
         }
+        void IDocumentContent.OnDestroy() { }
+        IDocumentOwner IDocumentContent.DocumentOwner { get; set; }
         #endregion
     }
 }

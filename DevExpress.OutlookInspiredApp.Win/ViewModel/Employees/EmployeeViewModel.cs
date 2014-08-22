@@ -20,7 +20,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
             if(handler != null)
                 handler(this, EventArgs.Empty);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void QuickLetter(EmployeeMailTemplate mailTemplate) {
             EmployeeCollectionViewModel collectionViewModel = ViewModelHelper.GetParentViewModel<EmployeeCollectionViewModel>(this);
             if(collectionViewModel != null)
@@ -31,7 +31,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
             EmployeeCollectionViewModel collectionViewModel = ViewModelHelper.GetParentViewModel<EmployeeCollectionViewModel>(this);
             return (collectionViewModel != null) && collectionViewModel.CanQuickLetterCore(Entity, mailTemplate);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void Print(EmployeeReportType reportType) {
             EmployeeCollectionViewModel collectionViewModel = ViewModelHelper.GetParentViewModel<EmployeeCollectionViewModel>(this);
             if(collectionViewModel != null)
@@ -42,7 +42,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
             EmployeeCollectionViewModel collectionViewModel = ViewModelHelper.GetParentViewModel<EmployeeCollectionViewModel>(this);
             return (collectionViewModel != null) && collectionViewModel.CanPrintProfileCore(Entity);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void MailMerge() {
             EmployeeCollectionViewModel collectionViewModel = ViewModelHelper.GetParentViewModel<EmployeeCollectionViewModel>(this);
             if(collectionViewModel != null)
@@ -51,7 +51,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
         public bool CanMailMerge() {
             return (Entity != null) && !IsNew();
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowMap() {
             EmployeeCollectionViewModel collectionViewModel = ViewModelHelper.GetParentViewModel<EmployeeCollectionViewModel>(this);
             if(collectionViewModel != null)
@@ -62,7 +62,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
             EmployeeCollectionViewModel collectionViewModel = ViewModelHelper.GetParentViewModel<EmployeeCollectionViewModel>(this);
             return (collectionViewModel != null) && collectionViewModel.CanShowMapCore(Entity);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowMeeting() {
             EmployeeCollectionViewModel collectionViewModel = ViewModelHelper.GetParentViewModel<EmployeeCollectionViewModel>(this);
             if(collectionViewModel != null)
@@ -71,7 +71,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
         public bool CanShowMeeting() {
             return (Entity != null) && !IsNew();
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowTask() {
             EmployeeCollectionViewModel collectionViewModel = ViewModelHelper.GetParentViewModel<EmployeeCollectionViewModel>(this);
             if(collectionViewModel != null)

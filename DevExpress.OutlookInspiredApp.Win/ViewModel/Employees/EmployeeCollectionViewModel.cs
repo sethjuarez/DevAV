@@ -41,7 +41,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
         public event EventHandler CustomFiltersReset;
         public event EventHandler CustomGroup;
         public event EventHandler<GroupEventArgs<Employee>> CustomGroupFromSelection;
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowMap() {
             ShowMapCore(SelectedEntity);
         }
@@ -68,7 +68,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
         public void NewGroup() {
             RaiseCustomGroup();
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void GroupSelection() {
             RaiseCustomGroupFromSelection();
         }
@@ -79,7 +79,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
         public void NewCustomFilter() {
             RaiseCustomFilter();
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void PrintProfile() {
             PrintCore(SelectedEntity, EmployeeReportType.Profile);
         }
@@ -121,7 +121,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
         public void MailMerge() {
             ShowDocument<EmployeeMailMergeViewModel>("MailMerge", null);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void QuickLetter(EmployeeMailTemplate mailTemplate) {
             QuickLetterCore(SelectedEntity, mailTemplate);
         }

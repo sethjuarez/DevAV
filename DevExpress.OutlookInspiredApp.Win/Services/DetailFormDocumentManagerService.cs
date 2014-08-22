@@ -26,14 +26,16 @@
                 owner.RemoveDocument(this);
                 formCore.Closing -= form_Closing;
                 formCore.Closed -= form_Closed;
+                IDocumentContent documentContent = GetContent() as IDocumentContent;
+                if(documentContent != null)
+                    documentContent.OnDestroy();
             }
             void form_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-                IDocumentViewModel documentContent = GetContent() as IDocumentViewModel;
-                bool cancel = documentContent != null && !documentContent.Close();
-                if(destroyOnCloseCore) {
-                    e.Cancel = cancel;
-                }
-                else {
+                IDocumentContent documentContent = GetContent() as IDocumentContent;
+                if(documentContent != null)
+                    documentContent.OnClose(e);
+                if(!destroyOnCloseCore) {
+                    bool cancel = e.Cancel;
                     e.Cancel = true;
                     if(!cancel)
                         formCore.Hide();

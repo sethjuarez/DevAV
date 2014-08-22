@@ -16,7 +16,7 @@
             RaiseEntityChanged();
         }
         public event EventHandler CustomizeFilter;
-        [Command(UseCommandManager = false)]
+        [Command]
         public void Customize() {
             RaiseCustomizeFilter();
         }

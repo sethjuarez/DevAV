@@ -18,11 +18,11 @@ namespace DevExpress.OutlookInspiredApp.Win {
             if(defaultValue) btnDueDate.Checked = true;
             else btnStartDate.Checked = true;
         }
-        private void btnDueDate_CheckedChanged(object sender, EventArgs e) {
-            callback(true);
+        void btnDueDate_CheckedChanged(object sender, EventArgs e) {
+            if(callback != null) callback(true);
         }
-        private void btnStartDate_CheckedChanged(object sender, EventArgs e) {
-            callback(false);
+        void btnStartDate_CheckedChanged(object sender, EventArgs e) {
+            if(callback != null) callback(false);
         }
     }
 }

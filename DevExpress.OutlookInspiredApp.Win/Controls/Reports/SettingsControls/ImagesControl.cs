@@ -18,11 +18,11 @@ namespace DevExpress.OutlookInspiredApp.Win {
             if(defaultValue) btnDisplayImages.Checked = true;
             else btnHideImages.Checked = true;
         }
-        private void btnDisplayImages_CheckedChanged(object sender, EventArgs e) {
-            callback(true);
+        void btnDisplayImages_CheckedChanged(object sender, EventArgs e) {
+            if(callback != null) callback(true);
         }
-        private void btnHideImages_CheckedChanged(object sender, EventArgs e) {
-            callback(false);
+        void btnHideImages_CheckedChanged(object sender, EventArgs e) {
+            if(callback != null) callback(false);
         }
     }
 }

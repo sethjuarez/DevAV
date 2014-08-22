@@ -35,7 +35,7 @@
     public class ReportViewModelBase<TReportType, TEntity, TPrimaryKey, TUnitOfWork> : ReportViewModelBase<TReportType>
         where TReportType : struct
         where TEntity : class
-        where TUnitOfWork : IUnitOfWork {
+        where TUnitOfWork : class, IUnitOfWork {
         protected override void OnParameterChanged() {
             base.OnParameterChanged();
             CheckReportEntityKey();

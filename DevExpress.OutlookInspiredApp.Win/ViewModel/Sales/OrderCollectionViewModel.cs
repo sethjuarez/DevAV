@@ -24,7 +24,7 @@
         public event EventHandler Reload;
         public event EventHandler CustomFilter;
         public event EventHandler CustomFiltersReset;
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowMap() {
             ShowMapCore(SelectedEntity);
         }
@@ -66,7 +66,7 @@
         public bool CanPrint() {
             return SelectedEntity != null;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void QuickReport(SalesReportType reportType) {
             QuickReportCore(SelectedEntity, reportType);
         }

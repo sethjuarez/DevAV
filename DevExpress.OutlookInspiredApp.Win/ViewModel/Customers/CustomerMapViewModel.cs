@@ -7,21 +7,21 @@
 
     public class CustomerMapViewModel : CustomerViewModel, ISalesMapViewModel {
         public virtual Sales.Period Period { get; set; }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetLifetimePeriod() {
             Period = Sales.Period.Lifetime;
         }
         public bool CanSetLifetimePeriod() {
             return Period != Sales.Period.Lifetime;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetThisYearPeriod() {
             Period = Sales.Period.ThisYear;
         }
         public bool CanSetThisYearPeriod() {
             return Period != Sales.Period.ThisYear;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetThisMonthPeriod() {
             Period = Sales.Period.ThisMonth;
         }

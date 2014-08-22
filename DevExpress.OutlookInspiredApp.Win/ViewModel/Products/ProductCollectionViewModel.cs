@@ -33,11 +33,11 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
         public event EventHandler CustomFiltersReset;
         public event EventHandler CustomGroup;
         public event EventHandler<GroupEventArgs<Product>> CustomGroupFromSelection;
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowAnalysis() {
             ShowDocument<ProductAnalysisViewModel>("Analysis", null);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowMap() {
             ShowDocument<ProductMapViewModel>("MapView", SelectedEntity.Id);
         }
@@ -58,7 +58,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
         public void NewGroup() {
             RaiseCustomGroup();
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void GroupSelection() {
             RaiseCustomGroupFromSelection();
         }
@@ -81,7 +81,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel {
         public void PrintSpecificationSummary() {
             RaisePrint(ProductReportType.SpecificationSummary);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void QuickReport(ProductReportType reportType) {
             RaisePrint(reportType);
         }

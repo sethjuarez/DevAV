@@ -58,7 +58,7 @@
         public bool CanSelectModule(ModuleType moduleType) {
             return SelectedModuleType != moduleType;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SelectModule(ModuleType moduleType) {
             SelectedModuleType = moduleType;
         }
@@ -66,7 +66,7 @@
             var peekModuleType = GetPeekModuleType(moduleType);
             return !GetService<IPeekModulesHostingService>().IsDocked(peekModuleType);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void DockPeekModule(ModuleType moduleType) {
             var peekModuleType = GetPeekModuleType(moduleType);
             GetService<IPeekModulesHostingService>().DockModule(peekModuleType);
@@ -75,7 +75,7 @@
             var peekModuleType = GetPeekModuleType(moduleType);
             return GetService<IPeekModulesHostingService>().IsDocked(peekModuleType);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void UndockPeekModule(ModuleType moduleType) {
             var peekModuleType = GetPeekModuleType(moduleType);
             GetService<IPeekModulesHostingService>().UndockModule(peekModuleType);
@@ -84,7 +84,7 @@
             var peekModuleType = GetPeekModuleType(moduleType);
             return !GetService<IPeekModulesHostingService>().IsDocked(peekModuleType);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowPeekModule(ModuleType moduleType) {
             var peekModuleType = GetPeekModuleType(moduleType);
             GetService<IPeekModulesHostingService>().ShowModule(peekModuleType);
@@ -103,20 +103,20 @@
         }
         [Command]
         public void About() {
-            DevExpress.Utils.About.AboutForm.Show(DevExpress.Utils.About.ProductKind.DXperienceWin,
-                new DevExpress.Utils.About.ProductStringInfo("Outlook Inspired App", "WinForms Controls"));
+            DevExpress.Utils.About.AboutHelper.Show(DevExpress.Utils.About.ProductKind.DXperienceWin,
+                new DevExpress.Utils.About.ProductStringInfoWin("Outlook Inspired App"));
         }
         #endregion
         #region FiltersVisibility
         public virtual bool IsReadingMode { get; set; }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void TurnOnReadingMode() {
             IsReadingMode = true;
         }
         public bool CanTurnOnReadingMode() {
             return !IsReadingMode;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void TurnOffReadingMode() {
             IsReadingMode = false;
         }
@@ -124,21 +124,21 @@
             return IsReadingMode;
         }
         public virtual CollectionViewFiltersVisibility FiltersVisibility { get; set; }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowFilters() {
             FiltersVisibility = CollectionViewFiltersVisibility.Visible;
         }
         public bool CanShowFilters() {
             return FiltersVisibility != CollectionViewFiltersVisibility.Visible;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void MinimizeFilters() {
             FiltersVisibility = CollectionViewFiltersVisibility.Minimized;
         }
         public bool CanMinimizeFilters() {
             return FiltersVisibility != CollectionViewFiltersVisibility.Minimized;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void HideFilters() {
             FiltersVisibility = CollectionViewFiltersVisibility.Hidden;
         }

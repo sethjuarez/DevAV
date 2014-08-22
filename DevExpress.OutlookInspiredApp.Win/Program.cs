@@ -27,6 +27,7 @@
                 DevExpress.Utils.AppearanceObject.DefaultFont = new Font("Segoe UI", AppHelper.GetDefaultSize());
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+                DevExpress.Mvvm.CommandBase.DefaultUseCommandManager = false;
                 using(new StartUpProcess()) {
                     using(StartUpProcess.Status.Subscribe(new DemoStartUp())) {
                         Application.Run(new MainForm());

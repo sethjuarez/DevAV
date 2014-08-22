@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Windows.Forms;
+    using DevExpress.DevAV.Common.DataModel;
     using DevExpress.DevAV.Common.ViewModel;
     using DevExpress.Utils;
     using DevExpress.XtraGrid;
@@ -14,7 +15,7 @@
     public abstract class CollectionPresenter<TEntity, TID, TUnitOfWork> :
         BasePresenter<CollectionViewModel<TEntity, TID, TUnitOfWork>>
         where TEntity : class
-        where TUnitOfWork : DevExpress.DevAV.Common.DataModel.IUnitOfWork {
+        where TUnitOfWork : class, IUnitOfWork {
         Action<int> updateUIAction;
         public CollectionPresenter(GridControl gridControl, CollectionViewModel<TEntity, TID, TUnitOfWork> viewModel, Action<int> updateUIAction)
             : base(viewModel) {

@@ -7,7 +7,7 @@
 
     class FilterTreeListHelper<TEntity, TID, TUnitOfWork>
         where TEntity : class
-        where TUnitOfWork : IUnitOfWork {
+        where TUnitOfWork : class, IUnitOfWork {
         TreeList treeList;
         public FilterTreeListHelper(XtraTreeList.TreeList treeList) {
             this.treeList = treeList;

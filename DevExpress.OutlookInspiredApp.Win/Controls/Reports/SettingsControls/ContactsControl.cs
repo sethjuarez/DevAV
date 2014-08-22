@@ -18,11 +18,11 @@ namespace DevExpress.OutlookInspiredApp.Win {
             if(defaultValue) btnIncludeContacts.Checked = true;
             else btnExcludeContacts.Checked = true;
         }
-        private void btnIncludeContacts_CheckedChanged(object sender, EventArgs e) {
-            callback(true);
+        void btnIncludeContacts_CheckedChanged(object sender, EventArgs e) {
+            if(callback != null) callback(true);
         }
-        private void btnExcludeContacts_CheckedChanged(object sender, EventArgs e) {
-            callback(false);
+        void btnExcludeContacts_CheckedChanged(object sender, EventArgs e) {
+            if(callback != null) callback(false);
         }
     }
 }

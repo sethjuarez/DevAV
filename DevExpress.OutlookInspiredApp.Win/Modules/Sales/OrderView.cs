@@ -4,6 +4,7 @@
     using DevExpress.DevAV.ViewModels;
     using DevExpress.OutlookInspiredApp.Win.ViewModel;
     using DevExpress.XtraBars.Docking2010;
+    using DevExpress.XtraRichEdit;
 
     public partial class OrderView : BaseModuleControl {
         public OrderView()
@@ -66,7 +67,9 @@
         }
         void snapControl_Paint(object sender, System.Windows.Forms.PaintEventArgs e) {
             snapControl.Paint -= snapControl_Paint;
-            snapControl.ActiveView.FitToPage();
+            PrintLayoutView view = snapControl.ActiveView as PrintLayoutView;
+            if (view != null)
+                view.FitToPage();
         }
         void snapControl_ZoomChanged(object sender, EventArgs e) {
             RaiseZoomLevelChanged();

@@ -7,21 +7,21 @@
     public class CollectionUIViewModel {
         #region ViewKind
         public virtual CollectionViewKind ViewKind { get; set; }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowCard() {
             ViewKind = CollectionViewKind.CardView;
         }
         public bool CanShowCard() {
             return ViewKind != CollectionViewKind.CardView;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowList() {
             ViewKind = CollectionViewKind.ListView;
         }
         public bool CanShowList() {
             return ViewKind != CollectionViewKind.ListView;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowCarousel() {
             ViewKind = CollectionViewKind.Carousel;
         }
@@ -44,21 +44,21 @@
         public bool IsHorizontalLayout {
             get { return ViewLayout == CollectionViewMasterDetailLayout.Horizontal; }
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowHorizontalLayout() {
             ViewLayout = CollectionViewMasterDetailLayout.Horizontal;
         }
         public bool CanShowHorizontalLayout() {
             return ViewLayout != CollectionViewMasterDetailLayout.Horizontal;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ShowVerticalLayout() {
             ViewLayout = CollectionViewMasterDetailLayout.Vertical;
         }
         public bool CanShowVerticalLayout() {
             return ViewLayout != CollectionViewMasterDetailLayout.Vertical;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void HideDetail() {
             ViewLayout = CollectionViewMasterDetailLayout.DetailHidden;
         }
@@ -76,7 +76,7 @@
         #region Reset
         public CollectionViewKind DefaultViewKind { get; set; }
         public CollectionViewMasterDetailLayout DefaultViewLayout { get; set; }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void ResetView() {
             ViewKind = DefaultViewKind;
             ViewLayout = DefaultViewLayout;

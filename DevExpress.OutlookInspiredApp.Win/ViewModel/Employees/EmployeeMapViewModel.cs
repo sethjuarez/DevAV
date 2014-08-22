@@ -9,14 +9,14 @@
 
     public class EmployeeMapViewModel : EmployeeViewModel, IRouteMapViewModel {
         public virtual BingTravelMode TravelMode { get; set; }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetDrivingTravelMode() {
             TravelMode = BingTravelMode.Driving;
         }
         public bool CanSetDrivingTravelMode() {
             return TravelMode != BingTravelMode.Driving;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetWalkingTravelMode() {
             TravelMode = BingTravelMode.Walking;
         }
@@ -34,7 +34,7 @@
             if(handler != null)
                 handler(this, EventArgs.Empty);
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SwapRoutePoints() {
             Address a = PointA;
             PointA = PointB;

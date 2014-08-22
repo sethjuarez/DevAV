@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraEditors;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace DevExpress.OutlookInspiredApp.Win {
@@ -18,8 +17,8 @@ namespace DevExpress.OutlookInspiredApp.Win {
             base.OnLoad(e);
             checkedComboBoxEdit1.EditValue = defaultValue;
         }
-        private void checkedComboBoxEdit1_EditValueChanged(object sender, EventArgs e) {
-            callback((string)checkedComboBoxEdit1.EditValue);
+        void checkedComboBoxEdit1_EditValueChanged(object sender, EventArgs e) {
+            if(callback != null) callback((string)checkedComboBoxEdit1.EditValue);
         }
     }
 }

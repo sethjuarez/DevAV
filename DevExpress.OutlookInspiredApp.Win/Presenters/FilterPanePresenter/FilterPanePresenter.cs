@@ -1,5 +1,7 @@
 ﻿namespace DevExpress.OutlookInspiredApp.Win.Presenters {
     using System.Linq;
+    using DevExpress.DevAV.Common.DataModel;
+    using DevExpress.DevAV.Common.ViewModel;
     using DevExpress.DevAV.ViewModels;
     using DevExpress.OutlookInspiredApp.Win.ViewModel;
     using DevExpress.XtraBars.Navigation;
@@ -7,7 +9,7 @@
     public abstract class FilterPanePresenter<TEntity, TID, TUnitOfWork> : 
         BasePresenter<FilterTreeViewModel<TEntity, TID, TUnitOfWork>>
         where TEntity : class
-        where TUnitOfWork : DevExpress.DevAV.Common.DataModel.IUnitOfWork {
+        where TUnitOfWork : class, IUnitOfWork {
         public FilterPanePresenter(OfficeNavigationBar navigationBar, FilterTreeViewModel<TEntity, TID, TUnitOfWork> viewModel)
             : base(viewModel) {
             this.navigationBarCore = navigationBar;
@@ -31,7 +33,7 @@
         protected OfficeNavigationBar OfficeNavigationBar {
             get { return navigationBarCore; }
         }
-        public DevExpress.DevAV.Common.ViewModel.CollectionViewModel<TEntity, TID, TUnitOfWork> CollectionViewModel {
+        public CollectionViewModel<TEntity, TID, TUnitOfWork> CollectionViewModel {
             get { return ViewModel.CollectionViewModel; }
         }
         protected virtual void SubscribeCollectionViewModelEvents() {

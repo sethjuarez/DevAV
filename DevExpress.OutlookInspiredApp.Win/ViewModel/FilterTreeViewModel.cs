@@ -14,7 +14,7 @@
 
     public class FilterTreeViewModel<TEntity, TPrimaryKey, TUnitOfWork> : FilterTreeViewModelBase
         where TEntity : class
-        where TUnitOfWork : IUnitOfWork {
+        where TUnitOfWork : class, IUnitOfWork {
         CollectionViewModel<TEntity, TPrimaryKey, TUnitOfWork> collectionViewModelCore;
         public FilterTreeViewModel(
             CollectionViewModel<TEntity, TPrimaryKey, TUnitOfWork> collectionViewModel,
@@ -41,7 +41,7 @@
         public bool CanSelectModule(FilterItem item) {
             return SelectedItem != item;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void Select(FilterItem item) {
             SelectedItem = item;
         }

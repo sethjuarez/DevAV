@@ -18,11 +18,11 @@ namespace DevExpress.OutlookInspiredApp.Win {
             if(defaultValue) btnAscendingOrder.Checked = true;
             else btnDescendingOrder.Checked = true;
         }
-        private void btnAscendingOrder_CheckedChanged(object sender, EventArgs e) {
-            callback(true);
+        void btnAscendingOrder_CheckedChanged(object sender, EventArgs e) {
+            if(callback!=null) callback(true);
         }
-        private void btnDescendingOrder_CheckedChanged(object sender, EventArgs e) {
-            callback(false);
+        void btnDescendingOrder_CheckedChanged(object sender, EventArgs e) {
+            if(callback != null) callback(false);
         }
     }
 }

@@ -6,28 +6,28 @@
 
     public class QuoteMapViewModel : QuoteViewModel {
         public virtual Opportunities.Stage Stage { get; set; }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetHighStage() {
             Stage = Opportunities.Stage.High;
         }
         public bool CanSetHighStage() {
             return Stage != Opportunities.Stage.High;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetMediumStage() {
             Stage = Opportunities.Stage.Medium;
         }
         public bool CanSetMediumStage() {
             return Stage != Opportunities.Stage.Medium;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetLowStage() {
             Stage = Opportunities.Stage.Low;
         }
         public bool CanSetLowStage() {
             return Stage != Opportunities.Stage.Low;
         }
-        [Command(UseCommandManager = false)]
+        [Command]
         public void SetUnlikelyStage() {
             Stage = Opportunities.Stage.Unlikely;
         }

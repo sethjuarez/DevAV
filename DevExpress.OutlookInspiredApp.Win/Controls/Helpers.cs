@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq.Expressions;
 using System.Windows.Forms;
 using DevExpress.Data.Filtering.Helpers;
-using DevExpress.OutlookInspiredApp.Win.ViewModel;
+using DevExpress.DevAV;
 using DevExpress.Skins;
 using DevExpress.Utils;
 using DevExpress.XtraBars;
@@ -16,7 +16,6 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Controls;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraLayout;
-using DevExpress.DevAV;
 
 namespace DevExpress.OutlookInspiredApp.Win {
     public class TaskPreviewGridView : GridView {
@@ -92,8 +91,8 @@ namespace DevExpress.OutlookInspiredApp.Win {
             if(zoomModule != null)
                 zoomModule.ZoomChanged += zoomModule_ZoomChanged;
         }
-        ZoomTrackBarControl ZoomControl { 
-            get { return zoomControlCore; } 
+        ZoomTrackBarControl ZoomControl {
+            get { return zoomControlCore; }
         }
         public int ZoomLevel {
             get { return zoomLevelCore; }
@@ -182,6 +181,7 @@ namespace DevExpress.OutlookInspiredApp.Win {
             treeList.Appearance.SelectedRow.Options.UseFont = true;
         }
     }
+    //
     public class AppHelper {
         public static void ProcessStart(string name) {
             ProcessStart(name, string.Empty);
@@ -352,25 +352,6 @@ namespace DevExpress.OutlookInspiredApp.Win {
     public class EditorHelpers {
         public static RepositoryItemImageComboBox CreatePersonPrefixImageComboBox(RepositoryItemImageComboBox edit = null, RepositoryItemCollection collection = null) {
             RepositoryItemImageComboBox ret = CreateEnumImageComboBox<PersonPrefix>(edit, collection);
-            foreach(ImageComboBoxItem item in ret.Items) {
-                switch((PersonPrefix)item.Value) {
-                    case PersonPrefix.Dr:
-                        item.ImageIndex = 0;
-                        break;
-                    case PersonPrefix.Miss:
-                        item.ImageIndex = 1;
-                        break;
-                    case PersonPrefix.Mr:
-                        item.ImageIndex = 2;
-                        break;
-                    case PersonPrefix.Mrs:
-                        item.ImageIndex = 3;
-                        break;
-                    case PersonPrefix.Ms:
-                        item.ImageIndex = 4;
-                        break;
-                }
-            }
             ret.SmallImages = CreatePersonPrefixImageCollection();
             if(edit == null)
                 ret.GlyphAlignment = HorzAlignment.Center;
@@ -378,22 +359,6 @@ namespace DevExpress.OutlookInspiredApp.Win {
         }
         public static RepositoryItemImageComboBox CreateTaskPriorityImageComboBox(RepositoryItemImageComboBox edit = null, RepositoryItemCollection collection = null) {
             RepositoryItemImageComboBox ret = CreateEnumImageComboBox<EmployeeTaskPriority>(edit, collection);
-            foreach(ImageComboBoxItem item in ret.Items) {
-                switch((EmployeeTaskPriority)item.Value) {
-                    case EmployeeTaskPriority.Low:
-                        item.ImageIndex = 0;
-                        break;
-                    case EmployeeTaskPriority.Normal:
-                        item.ImageIndex = 1;
-                        break;
-                    case EmployeeTaskPriority.High:
-                        item.ImageIndex = 2;
-                        break;
-                    case EmployeeTaskPriority.Urgent:
-                        item.ImageIndex = 3;
-                        break;
-                }
-            }
             ret.SmallImages = CreateTaskPriorityImageCollection();
             if(edit == null)
                 ret.GlyphAlignment = HorzAlignment.Center;
@@ -403,18 +368,18 @@ namespace DevExpress.OutlookInspiredApp.Win {
             ImageCollection ret = new ImageCollection();
             ret.ImageSize = new Size(16, 16);
             ret.AddImage(Properties.Resources.Doctor);
-            ret.AddImage(Properties.Resources.Miss);
             ret.AddImage(Properties.Resources.Mr);
-            ret.AddImage(Properties.Resources.Mrs);
             ret.AddImage(Properties.Resources.Ms);
+            ret.AddImage(Properties.Resources.Miss);
+            ret.AddImage(Properties.Resources.Mrs);
             return ret;
         }
         static ImageCollection CreateTaskPriorityImageCollection() {
             ImageCollection ret = new ImageCollection();
             ret.ImageSize = new Size(16, 16);
             ret.AddImage(Properties.Resources.LowPriority);
-            ret.AddImage(Properties.Resources.MediumPriority);
             ret.AddImage(Properties.Resources.NormalPriority);
+            ret.AddImage(Properties.Resources.MediumPriority);
             ret.AddImage(Properties.Resources.HighPriority);
             return ret;
         }
@@ -593,7 +558,7 @@ namespace DevExpress.OutlookInspiredApp.Win {
         void IObserver<string>.OnCompleted() { }
         void IObserver<string>.OnError(Exception error) { throw error; }
     }
-
+    //
     public class EntityEventArgs<TEntity> : EventArgs {
         TEntity entityCore;
         public EntityEventArgs(TEntity entity) {

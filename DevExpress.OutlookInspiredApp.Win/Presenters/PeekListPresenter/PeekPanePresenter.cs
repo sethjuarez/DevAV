@@ -1,4 +1,5 @@
 ﻿namespace DevExpress.OutlookInspiredApp.Win.Presenters {
+    using DevExpress.DevAV.Common.DataModel;
     using DevExpress.DevAV.Common.ViewModel;
     using DevExpress.OutlookInspiredApp.Win.ViewModel;
     using DevExpress.XtraGrid.Views.Grid;
@@ -6,7 +7,7 @@
     public abstract class PeekListPresenter<TEntity, TID, TUnitOfWork> :
         BasePresenter<CollectionViewModel<TEntity, TID, TUnitOfWork>>
         where TEntity : class
-        where TUnitOfWork : DevExpress.DevAV.Common.DataModel.IUnitOfWork {
+        where TUnitOfWork : class, IUnitOfWork {
         public PeekListPresenter(GridView gridView, CollectionViewModel<TEntity, TID, TUnitOfWork> viewModel)
             : base(viewModel) {
             this.gridViewCore = gridView;

@@ -1,6 +1,6 @@
-﻿using DevExpress.XtraEditors;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace DevExpress.OutlookInspiredApp.Win {
     public partial class SortFilterControl : UserControl {
@@ -29,18 +29,17 @@ namespace DevExpress.OutlookInspiredApp.Win {
             dateEdit1.DateTime = defaultFromDate;
             dateEdit2.DateTime = defaultToDate;
         }
-        private void btnOrderDate_CheckedChanged(object sender, EventArgs e) {
-            callback(true);
+        void btnOrderDate_CheckedChanged(object sender, EventArgs e) {
+            if(callback != null) callback(true);
         }
-        private void btnInvoice_CheckedChanged(object sender, EventArgs e) {
-            callback(false);
+        void btnInvoice_CheckedChanged(object sender, EventArgs e) {
+            if(callback != null) callback(false);
         }
-        private void dateEdit1_DateTimeChanged(object sender, EventArgs e) {
-            fromDate((sender as DateEdit).DateTime);
+        void dateEdit1_DateTimeChanged(object sender, EventArgs e) {
+            if(fromDate != null) fromDate((sender as DateEdit).DateTime);
         }
-
-        private void dateEdit2_DateTimeChanged(object sender, EventArgs e) {
-            toDate((sender as DateEdit).DateTime);
+        void dateEdit2_DateTimeChanged(object sender, EventArgs e) {
+            if(toDate != null) toDate((sender as DateEdit).DateTime);
         }
     }
 }
