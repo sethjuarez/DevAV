@@ -16,12 +16,18 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
     public partial class DashboardsFilterPane : BaseModuleControl, ISupportCompactLayout
     {
         public DashboardsFilterPane(DashboardsViewModel viewModel)
-            : base(() => new DashboardsFilterPaneViewModel(viewModel))
+            : base(() => CreateViewModel(() => new DashboardsFilterPaneViewModel(viewModel)))
         {
             InitializeComponent();
             FiltersTreeListAppearances.Apply(treeList);
             presenterCore = CreatePresenter();
         }
+
+        protected override void OnParentViewModelAttached()
+        {
+            BindCommands();
+        }
+
 
         public DashboardsFilterPaneViewModel ViewModel
         {
@@ -37,6 +43,11 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
             return new FileListPresenter(treeList, ViewModel);
         }
 
+        private void BindCommands()
+        {
+            btnNewDashboard.BindCommand(() => ViewModel.ParentViewModel.ShowNewDashboard(), ViewModel.ParentViewModel);
+        }
+
         bool compactLayout = true;
         private readonly FileListPresenter presenterCore;
 
@@ -50,6 +61,7 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
                 UpdateCompactLayout();
             }
         }
+
         void UpdateCompactLayout()
         {
             btnNewDashboardLayoutControlItem.Visibility = compactLayout ? LayoutVisibility.Never : LayoutVisibility.Always;

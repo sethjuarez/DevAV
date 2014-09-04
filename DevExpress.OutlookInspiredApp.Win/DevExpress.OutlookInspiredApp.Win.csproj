@@ -55,6 +55,15 @@
     <ApplicationIcon>Resources\AppIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Dashboard.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v14.1.Win, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v14.1.UI, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.1.UI, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v14.1.Wizard, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v14.1.Win, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework">
       <HintPath>
       </HintPath>
@@ -406,6 +415,12 @@
     <Compile Include="Modules\Dashboards\Dashboards.Designer.cs">
       <DependentUpon>Dashboards.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Dashboards\DashboardsEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Dashboards\DashboardsEditView.Designer.cs">
+      <DependentUpon>DashboardsEditView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Dashboards\DashboardsFilterPane.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -536,6 +551,7 @@
     <Compile Include="Services\DocumentManagerServiceBase.cs" />
     <Compile Include="Services\WaitingService.cs" />
     <Compile Include="ViewModel\Customers\CustomerMapViewModel.cs" />
+    <Compile Include="ViewModel\Dashboards\DashboardsEditViewViewModel.cs" />
     <Compile Include="ViewModel\Dashboards\DashboardsPanelViewModel.cs" />
     <Compile Include="ViewModel\Dashboards\DashboardsViewModel.cs" />
     <Compile Include="ViewModel\Helpers.cs" />
@@ -806,6 +822,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Dashboards\Dashboards.resx">
       <DependentUpon>Dashboards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Dashboards\DashboardsEditView.resx">
+      <DependentUpon>DashboardsEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Dashboards\DashboardsFilterPane.resx">
       <DependentUpon>DashboardsFilterPane.cs</DependentUpon>

@@ -28,64 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboards));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.dashboardViewer1 = new DevExpress.DashboardWin.DashboardViewer(this.components);
+            this.barButtonNewDashboard = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardViewer1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem});
+            this.ribbonControl1.ExpandCollapseItem,
+            this.barButtonItem1,
+            this.barButtonNewDashboard});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 1;
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbonControl1.Size = new System.Drawing.Size(803, 142);
+            this.ribbonControl1.Size = new System.Drawing.Size(1204, 169);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Edit";
+            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
+            this.barButtonItem1.Id = 1;
+            this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
+            this.ribbonPage1.Text = "HOME";
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonNewDashboard);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Dashboards";
             // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 563);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 831);
+            this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(803, 27);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1204, 31);
             // 
-            // labelControl1
+            // dashboardViewer1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(333, 346);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(66, 13);
-            this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "Main STUFFS!";
+            this.dashboardViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashboardViewer1.Location = new System.Drawing.Point(0, 169);
+            this.dashboardViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dashboardViewer1.Name = "dashboardViewer1";
+            this.dashboardViewer1.PrintingOptions.DocumentContentOptions.FilterState = DevExpress.DashboardWin.DashboardPrintingFilterState.None;
+            this.dashboardViewer1.PrintingOptions.FontInfo.GdiCharSet = ((byte)(0));
+            this.dashboardViewer1.PrintingOptions.FontInfo.Name = null;
+            this.dashboardViewer1.Size = new System.Drawing.Size(1204, 662);
+            this.dashboardViewer1.TabIndex = 5;
+            // 
+            // barButtonNewDashboard
+            // 
+            this.barButtonNewDashboard.Caption = "New";
+            this.barButtonNewDashboard.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonNewDashboard.Glyph")));
+            this.barButtonNewDashboard.Id = 2;
+            this.barButtonNewDashboard.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonNewDashboard.LargeGlyph")));
+            this.barButtonNewDashboard.Name = "barButtonNewDashboard";
             // 
             // Dashboards
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.dashboardViewer1);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboards";
-            this.Size = new System.Drawing.Size(803, 590);
+            this.Size = new System.Drawing.Size(1204, 862);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardViewer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,6 +130,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
-        private XtraEditors.LabelControl labelControl1;
+        private XtraBars.BarButtonItem barButtonItem1;
+        private DashboardWin.DashboardViewer dashboardViewer1;
+        private XtraBars.BarButtonItem barButtonNewDashboard;
     }
 }

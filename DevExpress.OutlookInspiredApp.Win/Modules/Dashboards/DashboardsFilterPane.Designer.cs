@@ -46,10 +46,11 @@
             // 
             this.btnNewDashboard.Image = global::DevExpress.OutlookInspiredApp.Win.Properties.Resources.icon_new_employee_16;
             this.btnNewDashboard.Location = new System.Drawing.Point(14, 14);
-            this.btnNewDashboard.MaximumSize = new System.Drawing.Size(150, 0);
-            this.btnNewDashboard.MinimumSize = new System.Drawing.Size(150, 0);
+            this.btnNewDashboard.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNewDashboard.MaximumSize = new System.Drawing.Size(225, 0);
+            this.btnNewDashboard.MinimumSize = new System.Drawing.Size(225, 0);
             this.btnNewDashboard.Name = "btnNewDashboard";
-            this.btnNewDashboard.Size = new System.Drawing.Size(150, 22);
+            this.btnNewDashboard.Size = new System.Drawing.Size(225, 26);
             this.btnNewDashboard.StyleController = this.moduleLayout;
             this.btnNewDashboard.TabIndex = 0;
             this.btnNewDashboard.Text = "New Dashboard";
@@ -60,15 +61,17 @@
             this.moduleLayout.Controls.Add(this.treeList);
             this.moduleLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.moduleLayout.Location = new System.Drawing.Point(0, 0);
+            this.moduleLayout.Margin = new System.Windows.Forms.Padding(4);
             this.moduleLayout.Name = "moduleLayout";
             this.moduleLayout.Root = this.Root;
-            this.moduleLayout.Size = new System.Drawing.Size(239, 455);
+            this.moduleLayout.Size = new System.Drawing.Size(358, 665);
             this.moduleLayout.TabIndex = 3;
             // 
             // treeList
             // 
             this.treeList.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.treeList.Location = new System.Drawing.Point(12, 54);
+            this.treeList.Location = new System.Drawing.Point(12, 58);
+            this.treeList.Margin = new System.Windows.Forms.Padding(4);
             this.treeList.Name = "treeList";
             this.treeList.OptionsBehavior.DragNodes = true;
             this.treeList.OptionsBehavior.Editable = false;
@@ -79,7 +82,7 @@
             this.treeList.OptionsView.ShowIndentAsRowStyle = true;
             this.treeList.OptionsView.ShowIndicator = false;
             this.treeList.OptionsView.ShowVertLines = false;
-            this.treeList.Size = new System.Drawing.Size(215, 389);
+            this.treeList.Size = new System.Drawing.Size(334, 595);
             this.treeList.TabIndex = 1;
             // 
             // Root
@@ -93,16 +96,16 @@
             this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
             this.Root.OptionsItemText.TextToControlDistance = 6;
-            this.Root.Size = new System.Drawing.Size(239, 455);
+            this.Root.Size = new System.Drawing.Size(358, 665);
             this.Root.Text = "Root";
             // 
             // treeListLayoutControlItem
             // 
             this.treeListLayoutControlItem.Control = this.treeList;
             this.treeListLayoutControlItem.CustomizationFormText = "treeListLayoutControlItem";
-            this.treeListLayoutControlItem.Location = new System.Drawing.Point(0, 42);
+            this.treeListLayoutControlItem.Location = new System.Drawing.Point(0, 46);
             this.treeListLayoutControlItem.Name = "treeListLayoutControlItem";
-            this.treeListLayoutControlItem.Size = new System.Drawing.Size(219, 393);
+            this.treeListLayoutControlItem.Size = new System.Drawing.Size(338, 599);
             this.treeListLayoutControlItem.Text = "treeListLayoutControlItem";
             this.treeListLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
             this.treeListLayoutControlItem.TextToControlDistance = 0;
@@ -116,7 +119,7 @@
             this.btnNewDashboardLayoutControlItem.Location = new System.Drawing.Point(0, 0);
             this.btnNewDashboardLayoutControlItem.Name = "btnNewDashboardLayoutControlItem";
             this.btnNewDashboardLayoutControlItem.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 16);
-            this.btnNewDashboardLayoutControlItem.Size = new System.Drawing.Size(219, 42);
+            this.btnNewDashboardLayoutControlItem.Size = new System.Drawing.Size(338, 46);
             this.btnNewDashboardLayoutControlItem.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.SupportHorzAlignment;
             this.btnNewDashboardLayoutControlItem.Text = "btnNewDashboardLayoutControlItem";
             this.btnNewDashboardLayoutControlItem.TextSize = new System.Drawing.Size(0, 0);
@@ -124,13 +127,14 @@
             this.btnNewDashboardLayoutControlItem.TextVisible = false;
             this.btnNewDashboardLayoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
-            // DashboardsPanel
+            // DashboardsFilterPane
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.moduleLayout);
-            this.Name = "DashboardsPanel";
-            this.Size = new System.Drawing.Size(239, 455);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "DashboardsFilterPane";
+            this.Size = new System.Drawing.Size(358, 665);
             ((System.ComponentModel.ISupportInitialize)(this.moduleLayout)).EndInit();
             this.moduleLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeList)).EndInit();

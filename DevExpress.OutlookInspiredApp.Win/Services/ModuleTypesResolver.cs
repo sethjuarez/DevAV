@@ -13,9 +13,12 @@
         ModuleType GetNavPaneHeaderModuleType(ModuleType type);
         ModuleType GetExportModuleType(ModuleType type);
         ModuleType GetPrintModuleType(ModuleType type);
+        ModuleType GetDashboardModuleType(ModuleType type);
     }
     class ModuleTypesResolver : IModuleTypesResolver {
-        public string GetName(ModuleType moduleType) {
+        
+        public string GetName(ModuleType moduleType)
+        {
             if(moduleType == ModuleType.Unknown)
                 return null;
             return moduleType.ToString();
@@ -123,6 +126,19 @@
                     return ModuleType.Unknown;
             }
         }
+
+        public ModuleType GetDashboardModuleType(ModuleType type)
+        {
+            switch (type)
+            {
+                case ModuleType.Dashboards:
+                case ModuleType.DashboardsFilterPane:
+                    return ModuleType.DashboardsEditView;
+                default:
+                    return ModuleType.Unknown;
+            }
+        }
+
         public ModuleType GetPeekModuleType(ModuleType moduleType) {
             switch(moduleType) {
                 case ModuleType.Employees:
