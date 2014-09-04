@@ -400,6 +400,18 @@
     <Compile Include="Modules\Customers\CustomerView.Designer.cs">
       <DependentUpon>CustomerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Dashboards\Dashboards.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Dashboards\Dashboards.Designer.cs">
+      <DependentUpon>Dashboards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Dashboards\DashboardsFilterPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Dashboards\DashboardsFilterPane.Designer.cs">
+      <DependentUpon>DashboardsFilterPane.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Employees\EmployeeMailMerge.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -511,6 +523,7 @@
     <Compile Include="Presenters\BasePresenter.cs" />
     <Compile Include="Presenters\CollectionPresenter\CollectionPresenter.cs" />
     <Compile Include="Presenters\CollectionPresenter\Presenters.cs" />
+    <Compile Include="Presenters\FilePresenter\FileListPresenter.cs" />
     <Compile Include="Presenters\FilterPanePresenter\FilterPanePresenter.cs" />
     <Compile Include="Presenters\FilterPanePresenter\Presenters.cs" />
     <Compile Include="Presenters\FilterTreeListPresenter\FilterTreeListPresenter.cs" />
@@ -523,6 +536,8 @@
     <Compile Include="Services\DocumentManagerServiceBase.cs" />
     <Compile Include="Services\WaitingService.cs" />
     <Compile Include="ViewModel\Customers\CustomerMapViewModel.cs" />
+    <Compile Include="ViewModel\Dashboards\DashboardsPanelViewModel.cs" />
+    <Compile Include="ViewModel\Dashboards\DashboardsViewModel.cs" />
     <Compile Include="ViewModel\Helpers.cs" />
     <Compile Include="Controls\ColumnViewHelper.cs" />
     <Compile Include="Modules\Customers\Customers.cs">
@@ -789,6 +804,12 @@
     <EmbeddedResource Include="Modules\Customers\CustomerView.resx">
       <DependentUpon>CustomerView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Dashboards\Dashboards.resx">
+      <DependentUpon>Dashboards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Dashboards\DashboardsFilterPane.resx">
+      <DependentUpon>DashboardsFilterPane.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Employees\EmployeeMailMerge.resx">
       <DependentUpon>EmployeeMailMerge.cs</DependentUpon>
     </EmbeddedResource>
@@ -894,6 +915,7 @@
     <EmbeddedResource Include="Modules\Sales\OrderView.resx">
       <DependentUpon>OrderView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Services\Forms\DetailForm.resx">
       <DependentUpon>DetailForm.cs</DependentUpon>
     </EmbeddedResource>

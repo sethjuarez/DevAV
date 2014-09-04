@@ -77,6 +77,8 @@
         QuoteMapView,
         QuotesExport,
         QuotesPrint,
+        Dashboards,
+        DashboardsFilterPane
     }
     //
     public interface IMainModule : IPeekModulesHost,

@@ -47,6 +47,9 @@
                 case ModuleType.QuotesPeek:
                 case ModuleType.QuotesFilterPane:
                     return new System.Guid("f4e3551d-6679-4db6-a103-1e25d7bc83a6");
+                case ModuleType.Dashboards:
+                case ModuleType.DashboardsFilterPane:
+                    return new System.Guid("f4e3551d-6679-4db6-a103-1e25d7bc83a7");
                 default:
                     return System.Guid.Empty;
             }
@@ -68,6 +71,9 @@
                 case ModuleType.Quotes:
                 case ModuleType.QuotesFilterPane:
                     return ModuleType.Quotes;
+                case ModuleType.Dashboards:
+                case ModuleType.DashboardsFilterPane:
+                    return ModuleType.Dashboards;
                 default:
                     return ModuleType.Unknown;
             }
@@ -166,6 +172,9 @@
                 case ModuleType.QuotesPeek:
                 case ModuleType.QuotesFilterPane:
                     return ModuleType.QuotesFilterPane;
+                case ModuleType.Dashboards:
+                case ModuleType.DashboardsFilterPane:
+                    return ModuleType.DashboardsFilterPane;
                 default:
                     return ModuleType.Unknown;
             }
