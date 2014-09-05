@@ -1,28 +1,31 @@
-﻿using DevExpress.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System;
 using System.Linq;
-using System.Text;
+using DevExpress.Mvvm;
+using System.Collections.Generic;
+using DevExpress.DashboardCommon;
 
 namespace DevExpress.OutlookInspiredApp.Win.ViewModel
 {
     public class DashboardsFilterPaneViewModel
     {
-        private readonly DashboardsViewModel _viewModel;
+        private readonly DashboardsViewModel _parentViewModel;
         public DashboardsFilterPaneViewModel()
             : this(null)
         {
+            
         }
 
-        public DashboardsFilterPaneViewModel(DashboardsViewModel viewModel)
+        public DashboardsFilterPaneViewModel(DashboardsViewModel parentViewModel)
         {
-            _viewModel = viewModel;
+            _parentViewModel = parentViewModel;
         }
 
         protected void OnSelectedDashboardChanged()
         {
-            Messenger.Default.Send<DashboardMessage>(new DashboardMessage(SelectedDashboard));
+            Dashboard d = new Dashboard();
+            d.LoadFromXml(SelectedDashboard);
+            var message = new DashboardMessage(d, DashboardMessageType.View);
+            Messenger.Default.Send<DashboardMessage>(message);
         }
 
         public virtual string SelectedDashboard { get; set; }
@@ -31,25 +34,7 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel
         {
             get
             {
-                return _viewModel;
-            }
-        }
-    }
-
-    public class DashboardMessage
-    {
-
-        private readonly string _dashboard;
-        public DashboardMessage(string dashboard)
-        {
-            _dashboard = dashboard;            
-        }
-
-        public string Dashboard
-        {
-            get
-            {
-                return _dashboard;
+                return _parentViewModel;
             }
         }
     }

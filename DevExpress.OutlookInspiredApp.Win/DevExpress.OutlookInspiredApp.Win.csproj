@@ -538,7 +538,9 @@
     <Compile Include="Presenters\BasePresenter.cs" />
     <Compile Include="Presenters\CollectionPresenter\CollectionPresenter.cs" />
     <Compile Include="Presenters\CollectionPresenter\Presenters.cs" />
-    <Compile Include="Presenters\FilePresenter\FileListPresenter.cs" />
+    <Compile Include="Presenters\DashboardPresenter\DashboardEditViewPresenter.cs" />
+    <Compile Include="Presenters\DashboardPresenter\DashboardListPresenter.cs" />
+    <Compile Include="Presenters\DashboardPresenter\DashboardViewPresenter.cs" />
     <Compile Include="Presenters\FilterPanePresenter\FilterPanePresenter.cs" />
     <Compile Include="Presenters\FilterPanePresenter\Presenters.cs" />
     <Compile Include="Presenters\FilterTreeListPresenter\FilterTreeListPresenter.cs" />

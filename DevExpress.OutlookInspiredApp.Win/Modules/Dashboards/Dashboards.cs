@@ -10,15 +10,18 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.OutlookInspiredApp.Win.ViewModel;
 using DevExpress.Mvvm;
+using DevExpress.OutlookInspiredApp.Win.Presenters;
 
 namespace DevExpress.OutlookInspiredApp.Win.Modules
 {
     public partial class Dashboards : BaseModuleControl, IRibbonModule
     {
+        private readonly DashboardViewPresenter presenterCore;
         public Dashboards()
             : base(CreateViewModel<DashboardsViewModel>)
         {
             InitializeComponent();
+            presenterCore = CreatePresenter();
             BindCommands();
         }
 
@@ -31,6 +34,16 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
         public DashboardsViewModel ViewModel
         {
             get { return GetViewModel<DashboardsViewModel>(); }
+        }
+
+        public DashboardViewPresenter Presenter
+        {
+            get { return presenterCore; }
+        }
+
+        protected virtual DashboardViewPresenter CreatePresenter()
+        {
+            return new DashboardViewPresenter(dashboardViewer1, ViewModel);
         }
 
         private void BindCommands()

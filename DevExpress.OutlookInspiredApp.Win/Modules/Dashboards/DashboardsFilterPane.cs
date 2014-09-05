@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Linq;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.OutlookInspiredApp.Win.ViewModel;
+using System.Collections.Generic;
 using DevExpress.XtraLayout.Utils;
+using DevExpress.OutlookInspiredApp.Win.ViewModel;
 using DevExpress.OutlookInspiredApp.Win.Presenters;
 
 namespace DevExpress.OutlookInspiredApp.Win.Modules
 {
     public partial class DashboardsFilterPane : BaseModuleControl, ISupportCompactLayout
     {
+        private readonly DashboardListPresenter presenterCore;
+
         public DashboardsFilterPane(DashboardsViewModel viewModel)
             : base(() => CreateViewModel(() => new DashboardsFilterPaneViewModel(viewModel)))
         {
@@ -33,14 +29,15 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
         {
             get { return GetViewModel<DashboardsFilterPaneViewModel>(); }
         }
-        public FileListPresenter Presenter
+
+        public DashboardListPresenter Presenter
         {
             get { return presenterCore; }
         }
 
-        protected virtual FileListPresenter CreatePresenter()
+        protected virtual DashboardListPresenter CreatePresenter()
         {
-            return new FileListPresenter(treeList, ViewModel);
+            return new DashboardListPresenter(treeList, ViewModel);
         }
 
         private void BindCommands()
@@ -49,7 +46,6 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
         }
 
         bool compactLayout = true;
-        private readonly FileListPresenter presenterCore;
 
         bool ISupportCompactLayout.Compact
         {
