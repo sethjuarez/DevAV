@@ -17,14 +17,15 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
             : base(CreateViewModel<DashboardsEditViewViewModel>)
         {
             InitializeComponent();
-            dashboardDesigner1.Dashboard = new DashboardCommon.Dashboard();
-            dashboardDesigner1.Dashboard.AddDataSource("Opportunities", ViewModel.Orders);
+            ViewModel.Dashboard = new DashboardCommon.Dashboard();
+            ViewModel.Dashboard.AddDataSource("Opportunities", ViewModel.Orders);
+            dashboardDesigner1.Dashboard = ViewModel.Dashboard;
             BindCommands();
         }
 
         private void BindCommands()
         {
-            
+            barButtonSave.BindCommand(() => ViewModel.SaveDashboard(), ViewModel);
         }
 
         public DashboardsEditViewViewModel ViewModel

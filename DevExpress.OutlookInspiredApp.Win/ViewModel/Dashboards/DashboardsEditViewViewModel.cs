@@ -1,4 +1,5 @@
 ﻿using DevExpress.DevAV.ViewModels;
+using DevExpress.Mvvm.DataAnnotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,13 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel
             _orders = Map(_ordersViewModel.Entities).ToList();
         }
 
-        public void SaveDashboard(DevExpress.DashboardCommon.Dashboard dashboard)
+        [Command]
+        public void SaveDashboard()
         {
-            throw new NotImplementedException();
+
         }
+
+        public virtual DashboardCommon.Dashboard Dashboard { get; set; }
 
         private static IEnumerable<OrderEntity> Map(IList<DevAV.Order> orders)
         {
