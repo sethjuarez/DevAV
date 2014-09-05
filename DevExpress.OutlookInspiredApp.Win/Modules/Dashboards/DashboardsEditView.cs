@@ -18,7 +18,13 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
         {
             InitializeComponent();
             dashboardDesigner1.Dashboard = new DashboardCommon.Dashboard();
-            dashboardDesigner1.Dashboard.AddDataSource("Opportunities", ViewModel.Entities);
+            dashboardDesigner1.Dashboard.AddDataSource("Opportunities", ViewModel.Orders);
+            BindCommands();
+        }
+
+        private void BindCommands()
+        {
+            
         }
 
         public DashboardsEditViewViewModel ViewModel
