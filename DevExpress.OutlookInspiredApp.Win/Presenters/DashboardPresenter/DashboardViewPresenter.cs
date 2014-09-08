@@ -23,41 +23,45 @@ namespace DevExpress.OutlookInspiredApp.Win.Presenters
         {
             // make sure there is data
             if (ViewModel.Orders == null || ViewModel.Orders.Count() == 0)
-                ViewModel.Refresh();
+                ViewModel.RefreshData();
 
             switch (message.MessageType)
             {
                 case DashboardMessageType.View:
-                    ViewDashboard(message.Dashboard);
-                    break;
-                case DashboardMessageType.Edit:
-                    ViewModel.Edit(message.Dashboard);
+                    View(message.Dashboard);
                     break;
                 case DashboardMessageType.Save:
-                    ViewModel.Save(message.Dashboard);
+                    Save(message.Dashboard);
                     break;
                 case DashboardMessageType.Refresh:
-                    ViewModel.Refresh();
+                    // nothing to do here
                     break;
             }
 
         }
 
-        private void ViewDashboard(Dashboard dashboard)
+        private void Save(Dashboard dashboard)
+        {
+            ViewModel.Save(dashboard);
+            View(dashboard);
+            Messenger.Default.Send<DashboardMessage>(DashboardMessage.Refresh());
+        }
+
+        private void View(Dashboard dashboard)
+        {
+            Clean();
+            ViewModel.CurrentDashboardPath = ViewModel.DashboardPath(dashboard);
+            _viewer.Dashboard = ViewModel.BindDashboard(dashboard);
+        }
+
+        private void Clean()
         {
             // clean up stuff
-            if(_viewer.Dashboard != null)
+            if (_viewer.Dashboard != null)
             {
                 _viewer.Dashboard.Dispose();
                 _viewer.Dashboard = null;
             }
-
-            if (dashboard.DataSources.Count() == 0)
-                dashboard.AddDataSource(DashboardsViewModel.DataSourceName, ViewModel.Orders);
-            else if (dashboard.DataSources[0].Name == DashboardsViewModel.DataSourceName)
-                dashboard.DataSources[0].Data = ViewModel.Orders;
-
-            _viewer.Dashboard = dashboard;
         }
 
         public DashboardsViewModel ViewModel { get; private set; }

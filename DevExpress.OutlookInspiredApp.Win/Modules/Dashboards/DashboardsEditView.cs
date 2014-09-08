@@ -51,5 +51,6 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
         {
             get { return ribbonControl1; }
         }
+
     }
 }

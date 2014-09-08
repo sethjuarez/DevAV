@@ -49,6 +49,7 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
         private void BindCommands()
         {
             barButtonNewDashboard.BindCommand(() => ViewModel.ShowNewDashboard(), ViewModel);
+            barButtonEdit.BindCommand(() => ViewModel.EditDashboard(), ViewModel);
         }
 
         public RibbonControl Ribbon

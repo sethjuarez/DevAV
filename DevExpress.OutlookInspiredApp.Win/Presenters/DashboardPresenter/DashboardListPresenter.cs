@@ -13,7 +13,7 @@ namespace DevExpress.OutlookInspiredApp.Win.Presenters
     {
         private readonly TreeList _tree;
         private readonly DashboardsFilterPaneViewModel _viewModel;
-        
+
         public DashboardListPresenter(TreeList tree, DashboardsFilterPaneViewModel viewModel)
         {
             _viewModel = viewModel;
@@ -57,40 +57,30 @@ namespace DevExpress.OutlookInspiredApp.Win.Presenters
             _tree.EndUpdate();
 
             _tree.DoubleClick += tree_DoubleClick;
+
         }
 
         private void tree_DoubleClick(object sender, EventArgs e)
         {
             if (_tree.Selection.Count > 0 && _tree.Selection[0].Tag.ToString().EndsWith(".xml"))
-                _viewModel.SelectedDashboard =_tree.Selection[0].Tag.ToString();
+                _viewModel.SelectedDashboard = _tree.Selection[0].Tag.ToString();
         }
 
         private void PopulateTree()
         {
             _tree.Nodes.Clear();
+            foreach (var dashboard in ViewModel.ParentViewModel.Dashboards)
+                AddNode(Path.GetFileNameWithoutExtension(dashboard), dashboard, null);
 
-            var dashboardDirectory = ViewModel.ParentViewModel.DashboardDirectory;
-
-            if (!Directory.Exists(dashboardDirectory))
-                Directory.CreateDirectory(dashboardDirectory);
-
-            AddDirectory(dashboardDirectory);
-        }
-
-        private void AddDirectory(string path, TreeListNode parent = null)
-        {
-            foreach (var t in Directory.EnumerateDirectories(path))
-                AddDirectory(t, AddNode(new DirectoryInfo(t).Name, t, parent));
-
-            foreach (var xml in Directory.EnumerateFiles(path, "*.xml"))
-                AddNode(Path.GetFileNameWithoutExtension(xml), xml, parent);
+            if (ViewModel.ParentViewModel.Dashboards.Length > 0 && 
+                string.IsNullOrEmpty(ViewModel.SelectedDashboard))
+                ViewModel.SelectedDashboard = _tree.Nodes.FirstNode.Tag.ToString();
         }
 
         public TreeListNode AddNode(string name, object tag = null, TreeListNode parent = null)
         {
             var node = _tree.AppendNode(new object[] { name }, parent);
             node.Tag = tag;
-            node.Selected = true;
             return node;
         }
     }
