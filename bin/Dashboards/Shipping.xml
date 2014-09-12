@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-US">
+  <Title Text="Shipping" />
+  <DataSources>
+    <DataSource ComponentName="dataSource1" Name="Opportunities" />
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Shipping Costs by Store" DataSource="dataSource1">
+      <DataItems>
+        <Dimension DataMember="StoreCity" UniqueName="DataItem0" />
+        <Measure DataMember="ShippingAmount" UniqueName="DataItem1" />
+        <Dimension DataMember="OrderDate" DateTimeGroupInterval="QuarterYear" UniqueName="DataItem2" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn Name="City">
+          <Dimension UniqueName="DataItem0" />
+        </GridDimensionColumn>
+        <GridSparklineColumn Name="Costs">
+          <SparklineValue UniqueName="DataItem1" />
+        </GridSparklineColumn>
+      </GridColumns>
+      <SparklineArgument UniqueName="DataItem2" />
+      <GridOptions />
+    </Grid>
+    <Chart ComponentName="chartDashboardItem1" Name="Shipping Costs by Quarter and Year" DataSource="dataSource1">
+      <DataItems>
+        <Measure DataMember="ShippingAmount" UniqueName="DataItem0" />
+        <Dimension DataMember="OrderDate" DateTimeGroupInterval="Quarter" UniqueName="DataItem1" />
+        <Dimension DataMember="OrderDate" UniqueName="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension UniqueName="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument UniqueName="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value UniqueName="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Gauge ComponentName="gaugeDashboardItem1" Name="Shipping Costs" DataSource="dataSource1" ViewType="CircularHalf">
+      <DataItems>
+        <Measure DataMember="ShippingAmount" UniqueName="DataItem0" />
+      </DataItems>
+      <GaugeElement Name="Costs">
+        <ActualValue UniqueName="DataItem0" />
+      </GaugeElement>
+    </Gauge>
+    <ChoroplethMap ComponentName="choroplethMapDashboardItem1" Name="Shipping Costs by State" DataSource="dataSource1" ShapefileArea="USA" AttributeName="POSTAL">
+      <DataItems>
+        <Dimension DataMember="StoreState" UniqueName="DataItem0" />
+        <Measure DataMember="ShippingAmount" UniqueName="DataItem1" />
+      </DataItems>
+      <ViewArea TopLatitude="49.369672064487254" BottomLatitude="22.722765208057595" LeftLongitude="-124.70997774915153" RightLongitude="-66.987022055984482" CenterPointLatitude="37.208247632673633" CenterPointLongitude="-95.848499902568008" />
+      <MapLegend />
+      <WeightedLegend />
+      <AttributeDimension UniqueName="DataItem0" />
+      <Maps>
+        <ValueMap Name="Costs" ValueName="Costs">
+          <Value UniqueName="DataItem1" />
+          <UniformScale />
+        </ValueMap>
+      </Maps>
+    </ChoroplethMap>
+    <Pie ComponentName="pieDashboardItem1" Name="Shipping Terms by Employee" DataSource="dataSource1">
+      <DataItems>
+        <Dimension DataMember="Employee" UniqueName="DataItem0" />
+        <Measure DataMember="ShippingAmount" UniqueName="DataItem1" Name="Costs" />
+        <Dimension DataMember="OrderTerms" UniqueName="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension UniqueName="DataItem0" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument UniqueName="DataItem2" />
+      </Arguments>
+      <Values>
+        <Value UniqueName="DataItem1" />
+      </Values>
+    </Pie>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Weight="80.949152542372886" Orientation="Vertical">
+        <LayoutGroup Weight="39.25925925925926">
+          <LayoutItem Weight="30.485762144053602" DashboardItem="gaugeDashboardItem1" />
+          <LayoutItem Weight="69.5142378559464" DashboardItem="chartDashboardItem1" />
+        </LayoutGroup>
+        <LayoutGroup Weight="60.74074074074074">
+          <LayoutItem Weight="30.485762144053602" DashboardItem="gridDashboardItem1" />
+          <LayoutItem Weight="69.5142378559464" DashboardItem="choroplethMapDashboardItem1" />
+        </LayoutGroup>
+      </LayoutGroup>
+      <LayoutItem Weight="19.050847457627118" DashboardItem="pieDashboardItem1" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

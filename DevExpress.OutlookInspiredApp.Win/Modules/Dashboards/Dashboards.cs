@@ -31,7 +31,7 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
 
         protected virtual DashboardsPresenter CreatePresenter()
         {
-            return new DashboardsPresenter(this, ViewModel);
+            return new DashboardsPresenter(dashboardViewer1, ViewModel);
         }
 
         public RibbonControl Ribbon

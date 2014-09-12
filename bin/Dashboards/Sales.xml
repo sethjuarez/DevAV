@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-US">
+  <Title Text="Sales" />
+  <DataSources>
+    <DataSource ComponentName="dataSource1" Name="Opportunities" />
+  </DataSources>
+  <Items>
+    <ChoroplethMap ComponentName="choroplethMapDashboardItem1" Name="Sales by Store" DataSource="dataSource1" ShapefileArea="USA" AttributeName="POSTAL">
+      <DataItems>
+        <Dimension DataMember="StoreState" UniqueName="DataItem0" />
+        <Measure DataMember="TotalAmount" UniqueName="DataItem1" />
+      </DataItems>
+      <ViewArea TopLatitude="50.790293917720064" BottomLatitude="23.901419671168071" LeftLongitude="-126.49580295770777" RightLongitude="-61.150512539591496" CenterPointLatitude="38.454347946081967" CenterPointLongitude="-92.87857979398693" CreateViewerPaddings="false" />
+      <MapLegend />
+      <WeightedLegend />
+      <AttributeDimension UniqueName="DataItem0" />
+      <Maps>
+        <ValueMap Name="Sales" ValueName="Sales">
+          <Value UniqueName="DataItem1" />
+          <UniformScale />
+        </ValueMap>
+      </Maps>
+    </ChoroplethMap>
+    <Chart ComponentName="chartDashboardItem1" Name="Sales by Month" DataSource="dataSource1">
+      <DataItems>
+        <Measure DataMember="TotalAmount" UniqueName="DataItem0" />
+        <Dimension DataMember="OrderDate" DateTimeGroupInterval="Month" UniqueName="DataItem1" />
+        <Dimension DataMember="OrderDate" UniqueName="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension UniqueName="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument UniqueName="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <AxisY Title="Sales" />
+          <Series>
+            <Simple SeriesType="Line">
+              <Value UniqueName="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Grid ComponentName="gridDashboardItem1" Name="Sales by Year" DataSource="dataSource1">
+      <DataItems>
+        <Dimension DataMember="OrderDate" UniqueName="DataItem0" />
+        <Measure DataMember="TotalAmount" UniqueName="DataItem1" />
+      </DataItems>
+      <InteractivityOptions MasterFilterMode="Single" />
+      <GridColumns>
+        <GridDimensionColumn Name="Sale">
+          <Dimension UniqueName="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="Amount">
+          <Measure UniqueName="DataItem1" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Pie ComponentName="pieDashboardItem1" Name="Sales by Employee" DataSource="dataSource1">
+      <DataItems>
+        <Measure DataMember="TotalAmount" UniqueName="DataItem0" Name="Sales" />
+        <Dimension DataMember="Employee" UniqueName="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument UniqueName="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value UniqueName="DataItem0" />
+      </Values>
+    </Pie>
+    <PieMap ComponentName="pieMapDashboardItem1" Name="Sales by Customer and Terms" DataSource="dataSource1" ShapefileArea="USA" EnableClustering="true">
+      <DataItems>
+        <Dimension DataMember="CustomerLat" UniqueName="DataItem0" />
+        <Dimension DataMember="CustomerLong" UniqueName="DataItem1" />
+        <Measure DataMember="TotalAmount" UniqueName="DataItem2" Name="Sales" />
+        <Dimension DataMember="OrderTerms" UniqueName="DataItem4" />
+      </DataItems>
+      <ViewArea TopLatitude="49.369672064487254" BottomLatitude="24.542349340056283" LeftLongitude="-124.70997774915153" RightLongitude="-66.987022055984482" CenterPointLatitude="37.995066405185554" CenterPointLongitude="-95.848499902568008" />
+      <MapLegend Visible="true" Position="BottomRight" Orientation="Horizontal" />
+      <WeightedLegend Visible="true" Position="BottomLeft" WeightedLegendType="Nested" />
+      <Latitude UniqueName="DataItem0" />
+      <Longitude UniqueName="DataItem1" />
+      <Argument UniqueName="DataItem4" />
+      <Values>
+        <Value UniqueName="DataItem2" />
+      </Values>
+    </PieMap>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutGroup Weight="50">
+        <LayoutGroup Weight="18.1" Orientation="Vertical">
+          <LayoutItem Weight="45.1" DashboardItem="gridDashboardItem1" />
+          <LayoutItem Weight="54.9" DashboardItem="pieDashboardItem1" />
+        </LayoutGroup>
+        <LayoutItem Weight="81.9" DashboardItem="chartDashboardItem1" />
+      </LayoutGroup>
+      <LayoutGroup Weight="50">
+        <LayoutItem Weight="50" DashboardItem="choroplethMapDashboardItem1" />
+        <LayoutItem Weight="50" DashboardItem="pieMapDashboardItem1" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
