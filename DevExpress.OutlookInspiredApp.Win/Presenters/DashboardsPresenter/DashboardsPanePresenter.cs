@@ -17,6 +17,7 @@ namespace DevExpress.OutlookInspiredApp.Win.Presenters
         {
             _tree = tree;
             InitTree();
+            PopulateTree();
         }
 
         private void InitTree()
@@ -26,7 +27,28 @@ namespace DevExpress.OutlookInspiredApp.Win.Presenters
             column.Caption = "Main";
             column.VisibleIndex = 0;
             _tree.EndUpdate();
+            _tree.DoubleClick += _tree_DoubleClick;
         }
+
+        void _tree_DoubleClick(object sender, EventArgs e)
+        {
+            if (_tree.Selection.Count > 0 && _tree.Selection[0].Tag.ToString().EndsWith(".xml"))
+            {
+                var viewModel = ViewModel.ParentViewModel;
+                viewModel.CurrentDashboard = _tree.Selection[0].Tag.ToString();
+
+                Messenger.Default.Send<DashboardMessage>(DashboardMessage.View());
+            }
+        }
+
+        private void PopulateTree()
+        {
+            _tree.Nodes.Clear();
+            var viewModel = ViewModel.ParentViewModel;
+            foreach (var d in viewModel.Dashboards)
+                AddNode(Path.GetFileNameWithoutExtension(d), d, null);
+        }
+        
 
         public TreeListNode AddNode(string name, object tag = null, TreeListNode parent = null)
         {

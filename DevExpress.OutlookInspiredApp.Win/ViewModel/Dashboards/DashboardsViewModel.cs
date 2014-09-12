@@ -117,4 +117,31 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel
             }
         }
     }
+
+    public enum DashboardMessageType
+    {
+        View,
+        Save,
+        Refresh
+    }
+
+    public class DashboardMessage
+    {
+        public static DashboardMessage Refresh() { return new DashboardMessage(DashboardMessageType.Refresh); }
+        public static DashboardMessage View() { return new DashboardMessage(DashboardMessageType.View); }
+
+        public DashboardMessage(DashboardMessageType messageType)
+        {
+            MessageType = messageType;
+        }
+
+        public DashboardMessage(Dashboard dashboard, DashboardMessageType messageType)
+        {
+            Dashboard = dashboard;
+            MessageType = messageType;
+        }
+
+        public Dashboard Dashboard { get; private set; }
+        public DashboardMessageType MessageType { get; private set; }
+    }
 }

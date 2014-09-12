@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DevExpress.OutlookInspiredApp.Win.Modules;
 using DevExpress.OutlookInspiredApp.Win.ViewModel;
 using DevExpress.DashboardWin;
+using DevExpress.Mvvm;
 
 
 namespace DevExpress.OutlookInspiredApp.Win.Presenters
@@ -17,6 +18,13 @@ namespace DevExpress.OutlookInspiredApp.Win.Presenters
             // into this presenter instance in a more granular way
             View = view;
             BindDashboard();
+            Messenger.Default.Register<DashboardMessage>(this, OnDashboardMessage);
+        }
+
+        private void OnDashboardMessage(DashboardMessage message)
+        {
+            if (message.MessageType == DashboardMessageType.View)
+                BindDashboard();
         }
 
         private void BindDashboard()
