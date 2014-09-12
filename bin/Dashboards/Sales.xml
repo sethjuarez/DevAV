@@ -21,7 +21,7 @@
         </ValueMap>
       </Maps>
     </ChoroplethMap>
-    <Chart ComponentName="chartDashboardItem1" Name="Sales by Month" DataSource="dataSource1">
+    <Chart ComponentName="chartDashboardItem1" Name="Sales by Month" DataSource="dataSource1" IgnoreMasterFilters="true">
       <DataItems>
         <Measure DataMember="TotalAmount" UniqueName="DataItem0" />
         <Dimension DataMember="OrderDate" DateTimeGroupInterval="Month" UniqueName="DataItem1" />

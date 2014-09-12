@@ -18,6 +18,13 @@ namespace DevExpress.OutlookInspiredApp.Win.Presenters
             _tree = tree;
             InitTree();
             PopulateTree();
+            Messenger.Default.Register<DashboardMessage>(this, OnDashboardMessage);
+        }
+
+        private void OnDashboardMessage(DashboardMessage message)
+        {
+            if (message.MessageType == DashboardMessageType.Refresh)
+                PopulateTree();
         }
 
         private void InitTree()

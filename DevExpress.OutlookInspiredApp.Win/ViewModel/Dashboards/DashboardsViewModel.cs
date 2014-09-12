@@ -108,6 +108,18 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel
         {
             OpenDashboard(GetCurrentDashboard());
         }
+        public void Save(Dashboard dashboard)
+        {
+            var file = string.Format("{0}\\{1}.xml", DashboardDirectory, dashboard.Title.Text);
+            dashboard.SaveToXml(file);
+            // refresh dashboard list just in case
+            Dashboards = Directory.EnumerateFiles(DashboardDirectory, "*.xml").ToArray();
+            
+            // send out messages
+            CurrentDashboard = file;
+            Messenger.Default.Send<DashboardMessage>(DashboardMessage.View());
+            Messenger.Default.Send<DashboardMessage>(DashboardMessage.Refresh());
+        }
 
     }
 

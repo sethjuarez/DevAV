@@ -48,7 +48,7 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
         private void BindCommands()
         {
             // bind commands to DashboardsEditViewModel here
-
+            barButtonSave.BindCommand(() => ViewModel.SaveDashboard(), ViewModel);
         }
     }
 }

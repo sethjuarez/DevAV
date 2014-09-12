@@ -5,6 +5,7 @@ using DevExpress.OutlookInspiredApp.Win.Modules;
 using DevExpress.OutlookInspiredApp.Win.ViewModel;
 using DevExpress.DashboardWin;
 using DevExpress.Mvvm;
+using DevExpress.DashboardCommon;
 
 
 namespace DevExpress.OutlookInspiredApp.Win.Presenters
@@ -25,7 +26,11 @@ namespace DevExpress.OutlookInspiredApp.Win.Presenters
         {
             if (message.MessageType == DashboardMessageType.View)
                 BindDashboard();
+            else if (message.MessageType == DashboardMessageType.Save)
+                ViewModel.Save(message.Dashboard);
         }
+
+
 
         private void BindDashboard()
         {
