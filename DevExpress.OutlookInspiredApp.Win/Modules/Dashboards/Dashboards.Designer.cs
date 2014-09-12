@@ -34,6 +34,8 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dashboardViewer1 = new DevExpress.DashboardWin.DashboardViewer(this.components);
+            this.barButtonNew = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonEdit = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardViewer1)).BeginInit();
             this.SuspendLayout();
@@ -42,10 +44,12 @@
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl1.ExpandCollapseItem});
+            this.ribbonControl1.ExpandCollapseItem,
+            this.barButtonNew,
+            this.barButtonEdit});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 1;
+            this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -62,6 +66,8 @@
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonNew);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonEdit);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Dashboard Stuffs";
             // 
@@ -84,6 +90,20 @@
             this.dashboardViewer1.PrintingOptions.FontInfo.Name = null;
             this.dashboardViewer1.Size = new System.Drawing.Size(1204, 662);
             this.dashboardViewer1.TabIndex = 2;
+            // 
+            // barButtonNew
+            // 
+            this.barButtonNew.Caption = "New";
+            this.barButtonNew.Id = 1;
+            this.barButtonNew.LargeGlyph = global::DevExpress.OutlookInspiredApp.Win.Properties.Resources.icon_new_opportunities_32;
+            this.barButtonNew.Name = "barButtonNew";
+            // 
+            // barButtonEdit
+            // 
+            this.barButtonEdit.Caption = "Edit";
+            this.barButtonEdit.Id = 2;
+            this.barButtonEdit.LargeGlyph = global::DevExpress.OutlookInspiredApp.Win.Properties.Resources.icon_edit_32;
+            this.barButtonEdit.Name = "barButtonEdit";
             // 
             // Dashboards
             // 
@@ -109,5 +129,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DashboardWin.DashboardViewer dashboardViewer1;
+        private XtraBars.BarButtonItem barButtonNew;
+        private XtraBars.BarButtonItem barButtonEdit;
     }
 }

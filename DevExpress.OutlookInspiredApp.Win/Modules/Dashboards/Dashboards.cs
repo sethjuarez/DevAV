@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.OutlookInspiredApp.Win.ViewModel;
 using DevExpress.OutlookInspiredApp.Win.Presenters;
+using DevExpress.Mvvm;
 
 
 namespace DevExpress.OutlookInspiredApp.Win.Modules
@@ -18,6 +19,12 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
             presenterCore = CreatePresenter();
             BindCommands();
         }
+
+         protected override void OnInitServices(IServiceContainer serviceContainer)
+         {
+        		base.OnInitServices(serviceContainer);
+        		serviceContainer.RegisterService(new DetailFormDocumentManagerService(ModuleType.DashboardsEdit));
+         }
 
         public DashboardsViewModel ViewModel
         {
@@ -42,8 +49,8 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
 
         private void BindCommands()
         {
-            // bind commands to DashboardsViewModel here
-
+            barButtonNew.BindCommand(() => ViewModel.NewDashboard(), ViewModel);
+            barButtonEdit.BindCommand(() => ViewModel.EditDashboard(), ViewModel);
         }
     }
 }

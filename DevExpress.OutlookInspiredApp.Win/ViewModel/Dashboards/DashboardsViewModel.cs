@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using DevExpress.DashboardCommon;
+using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.Mvvm;
 
 namespace DevExpress.OutlookInspiredApp.Win.ViewModel
 {
@@ -27,6 +29,27 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel
             DashboardDirectory = Path.Combine(Environment.CurrentDirectory, DataSourceDirectory);
             CurrentDashboard = string.Empty;
             Refresh();
+        }
+
+        // 2. In the ViewModel we need this property
+        [ServiceProperty]
+        public virtual IDocumentManagerService DocumentManagerService
+        {
+            get
+            {
+                return null;
+            }
+        }
+
+        // 3. Whenever you want to instantiate, use this:
+        // var document = DocumentManagerService.CreateDocument("DashboardsEdit", someParameter, this);
+        // if (document != null)
+        //		document.Show();
+        public void OpenDashboard(Dashboard dashboard)
+        {
+            var document = DocumentManagerService.CreateDocument("DashboardsEdit", dashboard, this);
+            if (document != null)
+                document.Show();
         }
 
         /// <summary>
@@ -71,6 +94,21 @@ namespace DevExpress.OutlookInspiredApp.Win.ViewModel
 
             return dashboard;
         }
+
+        [Command]
+        public void NewDashboard()
+        {
+            Dashboard d = new Dashboard();
+            BindDashboard(d);
+            OpenDashboard(d);
+        }
+
+        [Command]
+        public void EditDashboard()
+        {
+            OpenDashboard(GetCurrentDashboard());
+        }
+
     }
 
     public class OrderEntity

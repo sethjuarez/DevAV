@@ -86,6 +86,11 @@
                 var resolver = GetService<Services.IModuleTypesResolver>(parentViewModel);
                 return resolver.GetAnalysisModuleType(viewModuleType);
             }
+            if (documentType == "Dashboard")
+            {
+                var resolver = GetService<Services.IModuleTypesResolver>(parentViewModel);
+                return resolver.GetDashboardModuleType(viewModuleType);
+            }
             return viewModuleType;
         }
     }

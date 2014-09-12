@@ -19,6 +19,11 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
             BindCommands();
         }
 
+        protected override void OnParentViewModelAttached()
+        {
+            Presenter.BindDashboard();
+        }
+
         public DashboardsEditViewModel ViewModel
         {
             get { return GetViewModel<DashboardsEditViewModel>(); }
@@ -31,7 +36,7 @@ namespace DevExpress.OutlookInspiredApp.Win.Modules
 
         protected virtual DashboardsEditPresenter CreatePresenter()
         {
-            return new DashboardsEditPresenter(this, ViewModel);
+            return new DashboardsEditPresenter(dashboardDesigner1, ViewModel);
         }
 
         public RibbonControl Ribbon
