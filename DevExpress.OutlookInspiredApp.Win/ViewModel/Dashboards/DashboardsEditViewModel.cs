@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using DevExpress.Mvvm;
-using DevExpress.DashboardCommon;
 using System.Collections.Generic;
 using DevExpress.Mvvm.DataAnnotations;
 
