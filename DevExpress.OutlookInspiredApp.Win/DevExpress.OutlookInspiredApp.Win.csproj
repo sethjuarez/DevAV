@@ -415,6 +415,7 @@
     <Compile Include="Modules\Dashboards\Dashboards.Designer.cs">
       <DependentUpon>Dashboards.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Modules\Dashboards\DashboardsEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -426,6 +427,19 @@
     </Compile>
     <Compile Include="Modules\Dashboards\DashboardsFilterPane.Designer.cs">
       <DependentUpon>DashboardsFilterPane.cs</DependentUpon>
+=======
+    <Compile Include="Modules\Dashboards\DashboardsEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Dashboards\DashboardsEdit.Designer.cs">
+      <DependentUpon>DashboardsEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Dashboards\DashboardsPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Dashboards\DashboardsPane.Designer.cs">
+      <DependentUpon>DashboardsPane.cs</DependentUpon>
+>>>>>>> 58d5963b05133ab1068392b2084d015cb969dfb8
     </Compile>
     <Compile Include="Modules\Employees\EmployeeMailMerge.cs">
       <SubType>UserControl</SubType>
@@ -538,9 +552,15 @@
     <Compile Include="Presenters\BasePresenter.cs" />
     <Compile Include="Presenters\CollectionPresenter\CollectionPresenter.cs" />
     <Compile Include="Presenters\CollectionPresenter\Presenters.cs" />
+<<<<<<< HEAD
     <Compile Include="Presenters\DashboardPresenter\DashboardEditViewPresenter.cs" />
     <Compile Include="Presenters\DashboardPresenter\DashboardListPresenter.cs" />
     <Compile Include="Presenters\DashboardPresenter\DashboardViewPresenter.cs" />
+=======
+    <Compile Include="Presenters\DashboardsPresenter\DashboardsEditPresenter.cs" />
+    <Compile Include="Presenters\DashboardsPresenter\DashboardsPanePresenter.cs" />
+    <Compile Include="Presenters\DashboardsPresenter\DashboardsPresenter.cs" />
+>>>>>>> 58d5963b05133ab1068392b2084d015cb969dfb8
     <Compile Include="Presenters\FilterPanePresenter\FilterPanePresenter.cs" />
     <Compile Include="Presenters\FilterPanePresenter\Presenters.cs" />
     <Compile Include="Presenters\FilterTreeListPresenter\FilterTreeListPresenter.cs" />
@@ -553,8 +573,13 @@
     <Compile Include="Services\DocumentManagerServiceBase.cs" />
     <Compile Include="Services\WaitingService.cs" />
     <Compile Include="ViewModel\Customers\CustomerMapViewModel.cs" />
+<<<<<<< HEAD
     <Compile Include="ViewModel\Dashboards\DashboardsEditViewViewModel.cs" />
     <Compile Include="ViewModel\Dashboards\DashboardsPanelViewModel.cs" />
+=======
+    <Compile Include="ViewModel\Dashboards\DashboardsEditViewModel.cs" />
+    <Compile Include="ViewModel\Dashboards\DashboardsPaneViewModel.cs" />
+>>>>>>> 58d5963b05133ab1068392b2084d015cb969dfb8
     <Compile Include="ViewModel\Dashboards\DashboardsViewModel.cs" />
     <Compile Include="ViewModel\Helpers.cs" />
     <Compile Include="Controls\ColumnViewHelper.cs" />
@@ -825,11 +850,19 @@
     <EmbeddedResource Include="Modules\Dashboards\Dashboards.resx">
       <DependentUpon>Dashboards.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Modules\Dashboards\DashboardsEditView.resx">
       <DependentUpon>DashboardsEditView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Dashboards\DashboardsFilterPane.resx">
       <DependentUpon>DashboardsFilterPane.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Modules\Dashboards\DashboardsEdit.resx">
+      <DependentUpon>DashboardsEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Dashboards\DashboardsPane.resx">
+      <DependentUpon>DashboardsPane.cs</DependentUpon>
+>>>>>>> 58d5963b05133ab1068392b2084d015cb969dfb8
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Employees\EmployeeMailMerge.resx">
       <DependentUpon>EmployeeMailMerge.cs</DependentUpon>

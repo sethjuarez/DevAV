@@ -78,8 +78,13 @@
         QuotesExport,
         QuotesPrint,
         Dashboards,
+<<<<<<< HEAD
         DashboardsFilterPane,
         DashboardsEditView
+=======
+        DashboardsPane,
+        DashboardsEdit
+>>>>>>> 58d5963b05133ab1068392b2084d015cb969dfb8
     }
     //
     public interface IMainModule : IPeekModulesHost,

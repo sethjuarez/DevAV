@@ -59,7 +59,19 @@ namespace DevExpress.OutlookInspiredApp.Win {
             base.OnLoad(e);
             InitializePeekPanels();
             ViewModel.SelectedModuleType = ModuleType.Employees;
+<<<<<<< HEAD
             var types = new ModuleType[] { ModuleType.Employees, ModuleType.Customers, ModuleType.Products, ModuleType.Orders, ModuleType.Quotes, ModuleType.Dashboards };
+=======
+            var types = new ModuleType[] 
+            { 
+                ModuleType.Employees, 
+                ModuleType.Customers, 
+                ModuleType.Products, 
+                ModuleType.Orders, 
+                ModuleType.Quotes,
+                ModuleType.DashboardsEdit
+            };
+>>>>>>> 58d5963b05133ab1068392b2084d015cb969dfb8
             RegisterNavigationMenuItems(barNavigationItem, types);
             RegisterNavPanes(navBar, types);
             DevExpress.DevAV.StartUpProcess.Running("Successfully loaded.");
